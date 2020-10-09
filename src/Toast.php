@@ -22,6 +22,8 @@ class Toast
     private $icon = null;
     private $durationInMillis = 5000;
     private $autoDismiss = true;
+    private $model = "toast";
+    private $type = "info";
 
     public function __construct()
     {
@@ -89,6 +91,28 @@ class Toast
     }
 
     /**
+     * Sets notification model (toast or alert).
+     *
+     * @param $model string toast or alert.
+     * @return Toast
+     */
+    public function model($model): self
+    {
+        $this->model = $model;
+        return $this;
+    }
+
+    /**
+     * @param string $type
+     * @return Toast
+     */
+    public function type(string $type): self
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
      * Gets an instance of the Toast.
      *
      * @return $this
@@ -97,4 +121,61 @@ class Toast
     {
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return null
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDurationInMillis(): int
+    {
+        return $this->durationInMillis ?: 0;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAutoDismiss(): bool
+    {
+        return $this->autoDismiss;
+    }
+
+    /**
+     * @return string
+     */
+    public function getModel(): string
+    {
+        return $this->model;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
 }
