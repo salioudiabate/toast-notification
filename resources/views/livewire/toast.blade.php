@@ -47,7 +47,7 @@
                         </div>
                         @if (! $toast['autoDismiss'])
                             <div class="ml-4 flex-shrink-0 flex">
-                                <button @click="$wire.dismiss()" class="inline-flex text-gray-400 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150">
+                                <button x-on:click="show = false; $wire.dismiss()" class="inline-flex text-gray-400 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150">
                                     @include('toastnotification::icons.close')
                                 </button>
                             </div>
