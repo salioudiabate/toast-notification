@@ -8,14 +8,15 @@ use Livewire\Component;
 
 class AlertComponent extends Component
 {
-
     public $toast;
-    public $shown = true;
+
+    public $shown = false;
 
     protected $listeners = ['alertNotificationListener'];
 
     public function alertNotificationListener($toast)
     {
+        $this->shown = true;
         $this->toast = $toast;
     }
 

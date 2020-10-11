@@ -14,14 +14,8 @@ class ToastComponent extends Component
 
     protected $listeners = ['toastNotificationListener'];
 
-    public function mount()
-    {
-
-    }
-
     public function toastNotificationListener($toast)
     {
-        //dd($toast);
         $this->shown = true;
         $this->toast = $toast;
     }

@@ -2,8 +2,8 @@
     @if($shown)
         <div class="fixed inset-0 z-10000 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end">
             <div
-                    x-data="{ show: true }"
-                    x-init="setTimeout(() => { show = false; $wire.dismiss(); }, {{ getToastDuration($toast) }})"
+                    x-data="initializeData()"
+                    x-init="setTimeout(() => { close() }, {{ getToastDuration($toast) }})"
                     x-show="show"
                     x-transition:enter="transform ease-out duration-300 transition"
                     x-transition:enter-start="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
@@ -46,7 +46,7 @@
                             </div>
                             @if (! $toast['autoDismiss'])
                                 <div class="ml-4 flex-shrink-0 flex">
-                                    <button x-on:click="show = false; $wire.dismiss()" class="inline-flex text-gray-400 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150">
+                                    <button x-on:click="close()" class="inline-flex text-gray-400 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150">
                                         @include('toastnotification::icons.close')
                                     </button>
                                 </div>
@@ -58,3 +58,14 @@
         </div>
     @endif
 </div>
+<script>
+    function initializeData() {
+        return {
+            show: true,
+            close() {
+                this.show = false;
+                $wire.dismiss();
+            },
+        }
+    }
+</script>
