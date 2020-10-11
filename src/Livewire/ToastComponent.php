@@ -12,7 +12,7 @@ class ToastComponent extends Component
 
     public $shown = false;
 
-    protected $listeners = ['toastNotificationListener'];
+    protected $listeners = ['toastNotificationListener', 'dismiss'];
 
     public function toastNotificationListener($toast)
     {
@@ -25,9 +25,9 @@ class ToastComponent extends Component
         return view('toastnotification::livewire.toast');
     }
 
-    public function dismiss()
+    public function dismiss($isShown)
     {
-        $this->shown = false;
+        $this->shown = $isShown;
     }
 
 }

@@ -20,9 +20,9 @@ module.exports = {
             colors: {
                 default: '#a9afb4',
                 success: '#3bb453',
-                info: '#1b80f6',
+                info: '#1263c2',
                 warning: '#eeb320',
-                danger: '#f12839',
+                danger: '#c40517',
             },
             inset: {
                 '0': 0,
